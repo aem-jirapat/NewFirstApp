@@ -10,5 +10,5 @@ data class Contact(
     var contactId: Long = 0L,
 
     @ColumnInfo(name = "name")
-    var name: String
+    var contactName: String
 )
