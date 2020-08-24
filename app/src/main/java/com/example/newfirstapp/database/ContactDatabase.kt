@@ -5,24 +5,24 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [contact::class], version = 1, exportSchema = false)
-abstract class contactDatabase : RoomDatabase() {
+@Database(entities = [Contact::class], version = 1, exportSchema = false)
+abstract class ContactDatabase : RoomDatabase() {
 
-    abstract val contactDao: contactDAO
+    abstract val contactDao: ContactDAO
 
     companion object {
 
         @Volatile
-        private var INSTANCE: contactDatabase? = null
+        private var INSTANCE: ContactDatabase? = null
 
-        fun getInstance(context: Context): contactDatabase {
+        fun getInstance(context: Context): ContactDatabase {
             synchronized(this) {
                 var instance = INSTANCE
 
                 if (instance == null) {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
-                        contactDatabase::class.java,
+                        ContactDatabase::class.java,
                         "contact_data_database"
                     )
                         .fallbackToDestructiveMigration()
