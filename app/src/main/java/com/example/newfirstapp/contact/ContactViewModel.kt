@@ -1,6 +1,7 @@
 package com.example.newfirstapp.contact
 
 import android.app.Application
+import androidx.databinding.Bindable
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
@@ -17,14 +18,24 @@ class ContactViewModel(val database: ContactDAO, application: Application) :
 
     private var _contact = MutableLiveData<Contact?>()
 
-    val startButtonVisible = Transformations.map(_contact) {
-        null == it
+    val inputName = MutableLiveData<String>()
+    val addButton = MutableLiveData<String>()
+
+    init{
+        addButton.value = "Add"
     }
 
-    private suspend fun insert(contact: Contact) {
-        withContext(Dispatchers.IO) {
+    fun addName(){
+        val name = inputName.value!!
+        insertName(Contact(0,name))
+        inputName.value = null
+    }
+
+    fun insertName(contact: Contact) {
+        uiScope.launch{
             database.insertName(contact)
         }
     }
+
 
 }

@@ -38,8 +38,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="@string/edit_text"
+                android:text="@{contactViewModel.inputName}"
                 android:inputType="textPersonName"
-                android:text="@{contactViewModel.contactString}"
                 android:textAlignment="center" />
 
         </ScrollView>
@@ -51,13 +51,25 @@
             android:layout_marginStart="161dp"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="162dp"
-            android:text="@string/button"
-            android:enabled="@{contactViewModel.startButtonVisible}"
-            android:onClick="@{contactViewModel.onStartTracking()}"
+            android:onClick="@{()->contactViewModel.insertName()}"
+            android:hint="@string/button"
+            android:text="@{contactViewModel.addButton}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="120dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
