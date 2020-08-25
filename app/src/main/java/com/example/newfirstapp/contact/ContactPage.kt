@@ -19,24 +19,25 @@ class ContactPage : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding: FragmentContactBinding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_contact, container, false
-        )
-
-        val application = requireNotNull(this.activity).application
-
-        val dataSource = ContactDatabase.getInstance(application).contactDao
-
-        val viewModelFactory = ContactViewModelFactory(dataSource, application)
-
-        val contactViewModel =
-            ViewModelProvider(this, viewModelFactory).get(ContactViewModel::class.java)
-
-        binding.setLifecycleOwner(this)
-
-        binding.contactViewModel = contactViewModel
-
-
-        return binding.root
+        return inflater.inflate(R.layout.fragment_contact,container,false)
+//        val binding: FragmentContactBinding = DataBindingUtil.inflate(
+//            inflater, R.layout.fragment_contact, container, false
+//        )
+//
+//        val application = requireNotNull(this.activity).application
+//
+//        val dataSource = ContactDatabase.getInstance(application).contactDao
+//
+//        val viewModelFactory = ContactViewModelFactory(dataSource, application)
+//
+//        val contactViewModel =
+//            ViewModelProvider(this, viewModelFactory).get(ContactViewModel::class.java)
+//
+//        binding.setLifecycleOwner(this)
+//
+//        binding.contactViewModel = contactViewModel
+//
+//
+//        return binding.root
     }
 }

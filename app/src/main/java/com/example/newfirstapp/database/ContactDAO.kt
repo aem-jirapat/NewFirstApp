@@ -11,5 +11,5 @@ interface ContactDAO {
     fun insertName(contact:Contact)
 
     @Query("SELECT * FROM contact_table ORDER BY contactId DESC")
-    fun getName(): LiveData<List<Contact>>
+    fun getName(): Contact?
 }

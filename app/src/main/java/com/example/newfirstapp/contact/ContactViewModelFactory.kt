@@ -13,7 +13,7 @@ class ContactViewModelFactory(
     @Suppress("Unchecked")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if(modelClass.isAssignableFrom(ContactViewModel::class.java)){
-            return ContactViewModel(dataSource,application) as T
+            return ContactViewModel(dataSource!!,application) as T
         }
         throw IllegalArgumentException("Unknown ViewModel Class")
     }
