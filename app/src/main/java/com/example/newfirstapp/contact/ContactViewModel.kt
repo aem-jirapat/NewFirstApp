@@ -23,9 +23,6 @@ class ContactViewModel(val database: ContactDAO, application: Application) :
 
     private var tonight = MutableLiveData<Contact?>()
 
-    init{
-
-    }
 
     private suspend fun getNameFromDatabase(): Contact? {
         return withContext(Dispatchers.IO) {
