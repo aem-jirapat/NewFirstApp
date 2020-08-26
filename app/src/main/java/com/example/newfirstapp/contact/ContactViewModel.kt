@@ -8,47 +8,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.example.newfirstapp.database.Contact
 import com.example.newfirstapp.database.ContactDAO
+import com.example.newfirstapp.databinding.FragmentContactBinding
 import kotlinx.coroutines.*
 
-class ContactViewModel(val database: ContactDAO, application: Application) :
+class ContactViewModel(val database: ContactDAO,private val binding:FragmentContactBinding ,application: Application) :
     AndroidViewModel(application) {
-
-    val inputName = MutableLiveData<String>()
-
-    private var viewModelJob = Job()
-
-    private val nights = database.getName()
-
-    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
-
-    private var tonight = MutableLiveData<Contact?>()
-
-
-    private suspend fun getNameFromDatabase(): Contact? {
-        return withContext(Dispatchers.IO) {
-            var night = database.getName()
-            night
-        }
-    }
-
-
-    fun onStartTracking() {
-        uiScope.launch {
-            val newNight = Contact(0,"ERROR")
-            insert(newNight)
-            tonight.value = getNameFromDatabase()
-        }
-    }
-
-    private suspend fun insert(night: Contact) {
-        withContext(Dispatchers.IO) {
-            database.insertName(night)
-        }
-    }
-
-    val startButtonVisible = Transformations.map(tonight) {
-        it == null
-    }
 
 
 }
