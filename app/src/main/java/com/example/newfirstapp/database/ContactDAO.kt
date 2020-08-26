@@ -8,8 +8,8 @@ import androidx.room.Query
 @Dao
 interface ContactDAO {
     @Insert
-    fun insertName(contact:Contact)
+    fun insert(contact:Contact)
 
     @Query("SELECT * FROM contact_table")
-    fun getName(): LiveData<List<Contact>>
+    fun get(): LiveData<List<Contact>>
 }
