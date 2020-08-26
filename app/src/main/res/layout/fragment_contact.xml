@@ -30,7 +30,7 @@
             <Button
                 android:id="@+id/buttonInsert"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:onClick="@{()->contactViewModel.onContactAdd()}"
                 android:text="@string/button" />
 
