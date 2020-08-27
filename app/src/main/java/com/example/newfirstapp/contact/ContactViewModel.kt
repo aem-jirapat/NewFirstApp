@@ -38,6 +38,7 @@ class ContactViewModel(
                 append(it.id)
                 append(" : ")
                 append(it.name)
+                append("<br>")
             }
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {

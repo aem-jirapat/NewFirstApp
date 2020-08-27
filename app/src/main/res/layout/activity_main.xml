@@ -7,12 +7,21 @@
         android:id="@+id/drawerLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#FFFAF0"
         tools:context=".MainActivity">
 
         <FrameLayout
             android:id="@+id/fragment_contain"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="50sp"
+                app:srcCompat="@drawable/pic_me" />
 
         </FrameLayout>
 

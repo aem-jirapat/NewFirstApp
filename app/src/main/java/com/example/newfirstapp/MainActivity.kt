@@ -37,7 +37,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
     }
 
     override fun onBackPressed() {

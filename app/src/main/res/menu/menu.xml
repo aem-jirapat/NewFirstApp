@@ -4,9 +4,12 @@
 
     <item
         android:id="@+id/about_menu"
+        android:icon="@drawable/ic_about"
         android:title="@string/text_about" />
+
     <item
         android:id="@+id/contact_menu"
-        android:title="@string/text_menu" />
+        android:icon="@drawable/ic_contact"
+        android:title="@string/text_contact" />
 
 </menu>
